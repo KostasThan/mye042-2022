@@ -1,0 +1,76 @@
+.singUpContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#new_user{
+    display: flex;
+    flex-direction: column;
+}
+
+h1{
+    font-size: 50px;
+    font-weight: 800;
+}
+
+.submitSingUpBtn{
+    input{
+        background: green;
+        color: white;
+        border: none;
+        margin-top: 20px;
+        padding: 1rem;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: bold;
+        width: 100%;
+    }
+}
+
+.userImage{
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 1px solid #e3e3e3;
+  align-self: center;
+    &.small{
+        width: 35px;
+        height: 35px;  
+    }
+}
+
+.userList{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    a{
+        margin-top: 5px;
+    }
+}
+
+.userListItem{
+    display: flex;
+    border-radius: 8px;
+    align-items: center;
+    width: 50%;
+    border: 1px solid #e3e3e3;
+    padding: 1rem;
+}
+
+.followPageTitle{
+    font-size: x-large;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.followBtn{
+    margin-left: auto;
+}
+
+.userName{
+    margin-left: 5px;
+    font-size: 15px;
+    font-weight: bold;
+}

@@ -1,0 +1,33 @@
+.tagsContainer{
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    overflow: hidden;
+    height: auto;
+    border: 1px solid #e3e3e3;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.tagTitle{
+    font-size: 16px;
+    font-weight: 600;
+    margin-right: 5px;
+}
+
+#new_tag{
+    margin-top: 10px;
+
+}
+
+.tag{
+    border: 1px solid #1b4ab1;
+    background-color: #baf6f1;
+    color: #1b4ab1;
+    border-radius: 4px ;
+    padding: 0.5rem;
+    width: -moz-fit-content;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
