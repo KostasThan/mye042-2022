@@ -1,13 +1,4 @@
-.addAPhotoTitle
-  %div Add a Photo
+%h1 Add a Photo
 = form_for Photo.new(), :url => user_photos_path, :html => {:multipart => true} do |form|
-  .newPhotoRow
-    .newPhotoTitle
-      = form.label "Title: "
-      = form.text_field :title
-    .newPhotoImageSlection
-      = form.file_field :image
-  
-  .row
-    = form.submit 'Upload', class: ['btn', 'btn-success']
-    = link_to 'Back to home', user_path(@user), class: ['btn', 'btn-primary']
+  = form.file_field :image
+  = form.submit 'Upload'
