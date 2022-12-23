@@ -1,29 +1,55 @@
-.row.top_row
-  .col-sm-6.user_att
-    %h2= @user.email
+.top_row
+  .user_att
     - if @user.avatar_file_name
-      = image_tag @user.avatar.url(:thumb)
-  .col-sm-6
-    = link_to 'Logout', log_out_path, class: ['btn', 'btn-danger', 'logout_btn']
-  .row
-    = link_to 'Add Photo', new_user_photo_path(@user), class: ['btn', 'btn-success', 'add_photo_btn']
-%br/
-%br/
-%br/
-%br/
-%br/
-%br/
-%br/
-%br/
-%br/
-%br/
-.row
-  - @user.photos.each  do |photo|
-    .well.col-sm-4
-      = image_tag photo.image.url(:medium)
-      = form_for @tag do |f|
-        = f.hidden_field :photo_id, value: photo.id
-        = f.collection_select :user_id, @users, :id, :email
-        = f.submit "Tag User"
-      - photo.tags.each do |tag|
-        = tag.user.email
+      = image_tag @user.avatar.url(:thumb), class: "userImage"
+    %span= @user.email
+  .buttonsGroup
+    .follow_btn
+      = link_to 'Follow Users', show_users_path(@user), class: ['btn', 'btn-primary']
+    .logout_btn
+      = link_to 'Logout', log_out_path, class: ['btn', 'btn-danger']
+    .add_photo_btn
+      = link_to 'Add Photo', new_user_photo_path(@user), class: ['btn', 'btn-success']
+
+
+%hr
+.photosContainer
+  - if !@loggedInUserPhotos.empty?
+    .well.col-sm-4.photoContainer
+      .photoTitle
+        - @users.each do |user|
+          .uploadedBy
+            - if user.id == @loggedInUserPhotos[0].user_id
+              - if user.avatar_file_name
+                = image_tag user.avatar.url(:thumb),class: "userImage small"
+              %span{:class => "uploadedByField"}= user.email
+
+      .wrapper
+        %span{:class => "titleText", :id => "imageTitle"}= @loggedInUserPhotos[0].title
+        = image_tag @loggedInUserPhotos[0].image.url(:medium), id: "slide"
+        %div{:id => "hiddenImages"}
+          - @loggedInUserPhotos.each do |photo|
+            = image_tag photo.image.url(:medium), alt: photo.title
+            
+
+%hr
+.photosContainer
+  - @otherPhotosByUser.values.each do |userPhotos|
+    - if !userPhotos.empty?
+      .well.col-sm-4.photoContainer
+        .photoTitle
+          - @users.each do |user|
+            .uploadedBy
+              - if user.id == userPhotos[0].user_id
+                - if user.avatar_file_name
+                  = image_tag user.avatar.url(:thumb), class: "userImage small"
+                %span{:class => "uploadedByField"}= user.email
+
+        .wrapper
+          %span{:class => "titleText"}= userPhotos[0].title
+          .imageContainer
+            = image_tag userPhotos[0].image.url(:medium), id: "slide"
+          %div{:id => "hiddenImages"}
+            - userPhotos.each do |photo|
+              = image_tag photo.image.url(:medium), alt: photo.title
+              

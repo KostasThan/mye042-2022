@@ -1,0 +1,29 @@
+.comment { 
+  display: flex;
+  border-top: 1px solid #e3e3e3;
+}
+
+#new_comment{
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#comment_text{
+    width: 70%;
+}
+
+.commentDisplayName{
+  font-weight: 600;
+  margin-right: 5px;
+}
+
+.deleteCommentBtn{
+  margin-left: auto;
+}
+
+.commentsSectionContainer{
+  border: 1px solid #e3e3e3;
+  border-radius: 8px;
+  text-align: center;
+}

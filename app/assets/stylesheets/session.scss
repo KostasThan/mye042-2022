@@ -1,0 +1,21 @@
+.loginContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    input[name="commit"]{
+        margin-top: 10px;
+        width: 100%;
+        padding: 1rem;
+        border: none;
+        border-radius: 8px;
+        background-color: green;
+        color: white;
+        font-weight: bold;
+    }
+}

@@ -1,0 +1,19 @@
+.followPageTitle
+    Registered Users
+
+.userList
+    - @users.each  do |u|
+        .userListItem
+            - if u.avatar_file_name
+                = image_tag u.avatar.url(:thumb), class: "userImage small"
+            .userName
+                = u.email
+
+            - if @followedUsers.include? u.id.to_s
+                .followBtn  
+                    = button_to "Unfollow", unfollow_path(@user.id, u.id), method: :delete, class: ['btn', 'btn-danger']
+            - else
+                .followBtn
+                    = button_to "Follow", follow_path(@user.id, u.id), method: :post, class: ['btn', 'btn-primary']
+    .backBtn
+        = link_to 'Back to home', user_path(@user), class: ['btn', 'btn-info']
